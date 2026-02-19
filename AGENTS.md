@@ -13,7 +13,7 @@ Configuration-only repository (dotfiles-style)
 
 ```
 /home/kpeek/opencode.config/
-├── README.md                          # Empty placeholder
+├── README.md                          # Project documentation
 ├── config/.config/opencode/opencode.json  # Main OpenCode configuration
 └── .git/                              # Git repository
 ```
