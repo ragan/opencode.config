@@ -2,6 +2,20 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "opencode",
   "autoupdate": true,
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama",
+      "options": {
+        "baseURL": "http://ollama.hjkl.am:11434/v1"
+      },
+      "models": {
+        "glm4.7-flash-100k:latest": {
+          "name": "glm4.7-flash-100k"
+        }
+      }
+    }
+  },
   "command": {
     "init": {
       "template": "Please analyze this codebase and create an AGENTS.md file containing:\n1. Build/lint/test commands - especially for running a single test\n2. Code style guidelines including imports, formatting, types, naming conventions, error handling, etc.\n\nThe file you create will be given to agentic coding agents (such as yourself) that operate in this repository. Maximum size is about 300 lines.\nIf there are Cursor rules (in .cursor/rules/ or .cursorrules) or Copilot rules (in .github/copilot-instructions.md), make sure to include them.\n\nIf there's already an AGENTS.md, improve it if it's located in ${path}\n\n$ARGUMENTS",
