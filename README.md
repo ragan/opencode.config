@@ -6,29 +6,12 @@ Personal configuration repository for [OpenCode](https://opencode.ai) - an AI-po
 
 This repository stores custom OpenCode settings and commands to maintain consistent behavior across development environments.
 
-## Contents
-
-- `config/.config/opencode/opencode.json` - Main OpenCode configuration including:
-  - Theme settings
-  - Auto-update preferences
-  - Custom commands
-
 ## Custom Commands
 
-### `init`
-Creates or updates an `AGENTS.md` file in other repositories with:
-- Build, lint, and test commands
-- Code style guidelines
-- Project structure information
-
-### `commit`
-Automatically commits changes with a generated message following the repository's commit message style.
-
-### `branch-out`
-Creates a new branch with a smart two-word name reflecting the type of changes made relative to main/master.
-
-### `review`
-Reviews code changes for bugs, structure issues, and best practices. Uses Ollama with the `glm4.7-flash-100k` model.
+- [init](./config/.config/opencode/commands/init.md)
+- [commit](./config/.config/opencode/commands/commit.md)
+- [branch-out](./config/.config/opencode/commands/branch.md)
+- [review](./config/.config/opencode/commands/review.md)
 
 ## Usage
 
