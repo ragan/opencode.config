@@ -32,9 +32,19 @@ Reviews code changes for bugs, structure issues, and best practices. Uses Ollama
 
 ## Usage
 
-1. Clone this repository
-2. Ensure OpenCode is installed
-3. OpenCode will automatically pick up these settings
+Clone this repository somewhere (not in your home directory), then use GNU Stow to deploy the configuration:
+
+```bash
+# Clone the repository
+git clone git@nas.hjkl.am:kpeek/opencode.config.git ~/opencode.config
+cd ~/opencode.config
+
+# Install using stow
+make install
+
+# Uninstall if needed
+make uninstall
+```
 
 ## See Also
 
