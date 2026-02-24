@@ -17,10 +17,6 @@
     }
   },
   "command": {
-    "init": {
-      "template": "Please analyze this codebase and create an AGENTS.md file containing:\n1. Build/lint/test commands - especially for running a single test\n2. Code style guidelines including imports, formatting, types, naming conventions, error handling, etc.\n\nThe file you create will be given to agentic coding agents (such as yourself) that operate in this repository. Maximum size is about 300 lines.\nIf there are Cursor rules (in .cursor/rules/ or .cursorrules) or Copilot rules (in .github/copilot-instructions.md), make sure to include them.\n\nIf there's already an AGENTS.md, improve it if it's located in ${path}\n\n$ARGUMENTS",
-      "description": "Create/update AGENTS.md"
-    },
     "commit": {
       "template": "Commit current changes to git. Follow these steps:\n\n1. Run `git status` to see all untracked and modified files\n2. Run `git diff HEAD` (staged and unstaged) to understand the changes\n3. Check AGENTS.md for build/lint/test commands and run them if they exist. If any tests fail, report the failure and DO NOT commit.\n4. If tests pass (or no tests configured), stage all changes with `git add .`\n5. Analyze the changes and craft a concise commit message (1-2 sentences) following the repository's commit message style if documented in AGENTS.md\n6. Create the commit with the generated message\n\n$ARGUMENTS",
       "description": "Auto-commit with generated message"
