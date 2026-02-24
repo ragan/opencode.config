@@ -30,6 +30,9 @@ Verifies all README.md files are aligned with the current state of the codebase 
 ### `branch-out`
 Creates a new branch with a smart two-word name reflecting the type of changes made relative to main/master.
 
+### `review`
+Reviews code changes for bugs, structure issues, and best practices. Uses Ollama with the `glm4.7-flash-100k` model. See [REVIEW_SETUP.md](./REVIEW_SETUP.md) for configuration details.
+
 ## Usage
 
 1. Clone this repository
