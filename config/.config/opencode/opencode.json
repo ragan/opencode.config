@@ -17,10 +17,6 @@
     }
   },
   "command": {
-    "commit": {
-      "template": "Commit current changes to git. Follow these steps:\n\n1. Run `git status` to see all untracked and modified files\n2. Run `git diff HEAD` (staged and unstaged) to understand the changes\n3. Check AGENTS.md for build/lint/test commands and run them if they exist. If any tests fail, report the failure and DO NOT commit.\n4. If tests pass (or no tests configured), stage all changes with `git add .`\n5. Analyze the changes and craft a concise commit message (1-2 sentences) following the repository's commit message style if documented in AGENTS.md\n6. Create the commit with the generated message\n\n$ARGUMENTS",
-      "description": "Auto-commit with generated message"
-    },
     "verify-readme": {
       "template": "Verify all README.md files are aligned with the current state of the codebase:\n\n1. Find all README.md files in the repository\n2. For each README, read its contents and identify factual claims about the codebase:\n   - Files, directories, and their locations\n   - Commands, scripts, and their functionality\n   - Features and capabilities\n   - Dependencies and requirements\n   - Installation/setup instructions\n   - Build/lint/test commands\n   - API endpoints, functions, or classes mentioned\n   - Configuration options and settings\n3. For each claim, verify against the actual codebase:\n   - Check if mentioned files/directories exist\n   - Verify commands work as described (try running them if safe)\n   - Confirm features are implemented\n   - Check dependencies match package.json, requirements.txt, etc.\n   - Verify installation instructions are accurate\n   - Test build/lint/test commands if they exist\n   - Validate API endpoints/functions exist in the code\n   - Confirm configuration options are available\n4. Report all inconsistencies, outdated information, and potential issues\n5. For each issue, provide:\n   - The README file and section where it was found\n   - The incorrect claim\n   - What the actual state is\n   - Suggested fix if applicable\n\n$ARGUMENTS",
       "description": "Verify README.md files match codebase reality"
