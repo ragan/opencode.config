@@ -24,14 +24,11 @@ Creates or updates an `AGENTS.md` file in other repositories with:
 ### `commit`
 Automatically commits changes with a generated message following the repository's commit message style.
 
-### `verify-readme`
-Verifies all README.md files are aligned with the current state of the codebase by checking factual claims against actual code.
-
 ### `branch-out`
 Creates a new branch with a smart two-word name reflecting the type of changes made relative to main/master.
 
 ### `review`
-Reviews code changes for bugs, structure issues, and best practices. Uses Ollama with the `glm4.7-flash-100k` model. See [REVIEW_SETUP.md](./REVIEW_SETUP.md) for configuration details.
+Reviews code changes for bugs, structure issues, and best practices. Uses Ollama with the `glm4.7-flash-100k` model.
 
 ## Usage
 
