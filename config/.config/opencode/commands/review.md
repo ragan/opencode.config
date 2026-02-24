@@ -89,6 +89,14 @@ For full codebase reviews ("all", "whole", "codebase"):
 - Check for redundant or excessive detail that clutters the main documentation
 - Flag README content that should be in separate docs (API docs, CONTRIBUTING.md, etc.)
 
+**Logs and Console Output** - Keep logs clean and professional
+- No emojis in server logs or console output
+- No ASCII art in server logs or console output
+- No decorative or playful elements in logs
+- Keep logs concise and focused on actionable information
+- Avoid excessive verbosity that clutters log output
+- Comments and log messages should be professional and direct
+
 **Behavior Changes** - If a behavioral change is introduced, raise it (especially if it's possibly unintentional).
 
 ---
