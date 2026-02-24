@@ -27,8 +27,14 @@ Based on the input provided, determine which type of review to perform:
    - Run: `git diff $ARGUMENTS...HEAD`
 
 4. **PR URL or number** (contains "github.com" or "pull" or looks like a PR number): Review the pull request
-   - Run: `gh pr view $ARGUMENTS` to get PR context
-   - Run: `gh pr diff $ARGUMENTS` to get the diff
+    - Run: `gh pr view $ARGUMENTS` to get PR context
+    - Run: `gh pr diff $ARGUMENTS` to get the diff
+
+5. **"all", "whole", or "codebase"**: Review the entire codebase
+    - Use the explore agent to understand the project structure
+    - Read key files to understand architecture and patterns
+    - Review can focus on high-level issues, patterns, and overall code quality
+    - This is a comprehensive review, not just changes
 
 Use best judgement when processing input.
 
@@ -38,10 +44,17 @@ Use best judgement when processing input.
 
 **Diffs alone are not enough.** After getting the diff, read the entire file(s) being modified to understand the full context. Code that looks wrong in isolation may be correct given surrounding logic—and vice versa.
 
+For change-based reviews (default, commits, branches, PRs):
 - Use the diff to identify which files changed
 - Use `git status --short` to identify untracked files, then read their full contents
 - Read the full file to understand existing patterns, control flow, and error handling
 - Check for existing style guide or conventions files (CONVENTIONS.md, AGENTS.md, .editorconfig, etc.)
+
+For full codebase reviews ("all", "whole", "codebase"):
+- Use the explore agent to understand project structure and architecture
+- Read key files across the codebase to identify patterns and conventions
+- Focus on high-level issues, consistency, and overall code quality
+- Check configuration files, documentation, and structural organization
 
 ---
 
@@ -62,6 +75,20 @@ Use best judgement when processing input.
 **Performance** - Only flag if obviously problematic.
 - O(n²) on unbounded data, N+1 queries, blocking I/O on hot paths
 
+**Comments and Documentation** - Verify quality and purpose (applies to all languages)
+- Comments should describe **why** something is done, not **what** the function is doing
+- Remove comments that merely restate the code (e.g., "// increment counter" above `i++`)
+- Keep comments that explain reasoning, trade-offs, or non-obvious implementation details
+- Check docstrings/inline docs for completeness and accuracy
+- Flag outdated comments that no longer match the code
+
+**README Files** - Verify scope and content
+- README.md should describe **what it is** and **how to use it** - nothing more
+- Remove information that's obvious or belongs elsewhere (implementation details, changelogs, etc.)
+- Keep only non-obvious information (unusual setup steps, quirks, gotchas)
+- Check for redundant or excessive detail that clutters the main documentation
+- Flag README content that should be in separate docs (API docs, CONTRIBUTING.md, etc.)
+
 **Behavior Changes** - If a behavioral change is introduced, raise it (especially if it's possibly unintentional).
 
 ---
@@ -70,7 +97,8 @@ Use best judgement when processing input.
 
 **Be certain.** If you're going to call something a bug, you need to be confident it actually is one.
 
-- Only review the changes - do not review pre-existing code that wasn't modified
+- For change-based reviews: Only review the changes - do not review pre-existing code that wasn't modified
+- For full codebase reviews: You can review pre-existing code, but focus on meaningful issues, not nitpicking
 - Don't flag something as a bug if you're unsure - investigate first
 - Don't invent hypothetical problems - if an edge case matters, explain the realistic scenario where it breaks
 - If you need more context to be sure, use the tools below to get it
