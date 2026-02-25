@@ -1,6 +1,6 @@
 ---
 description: Create smart branch name based on changes
-model: ollama/supervisor
+model: ollama/janitor
 ---
 
 Create a new branch with a two-word name reflecting changes in relation to main/master:

@@ -10,9 +10,9 @@
         "baseURL": "http://ollama.hjkl.am:11434/v1"
       },
       "models": {
-        "supervisor": {
+        "janitor": {
           "id": "glm4.7-flash-100k",
-          "name": "glm4.7-flash-100k"
+          "name": "Code Janitor"
         }
       }
     }

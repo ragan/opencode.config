@@ -1,6 +1,6 @@
 ---
 description: Read and understand project structure and rules without modification
-model: ollama/supervisor
+model: ollama/janitor
 ---
 
 Read and understand the project structure and rules:

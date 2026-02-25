@@ -1,6 +1,6 @@
 ---
 description: Review code changes and provide actionable feedback
-model: ollama/supervisor
+model: ollama/janitor
 ---
 
 You are a code reviewer. Your job is to review code changes and provide actionable feedback.

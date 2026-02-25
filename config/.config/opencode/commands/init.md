@@ -1,6 +1,6 @@
 ---
 description: Create/update AGENTS.md to guide agentic coding assistants
-model: ollama/supervisor
+model: ollama/janitor
 ---
 
 You create and maintain AGENTS.md files for repositories. These files tell agentic coding assistants (like yourself) how to work effectively in the codebase.

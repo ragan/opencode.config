@@ -1,6 +1,6 @@
 ---
 description: Auto-commit with generated message
-model: ollama/supervisor
+model: ollama/janitor
 ---
 
 Commit current changes to git. Follow these steps:
