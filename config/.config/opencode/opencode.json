@@ -10,7 +10,8 @@
         "baseURL": "http://ollama.hjkl.am:11434/v1"
       },
       "models": {
-        "glm4.7-flash-100k:latest": {
+        "supervisor": {
+          "id": "glm4.7-flash-100k",
           "name": "glm4.7-flash-100k"
         }
       }

@@ -1,6 +1,6 @@
 ---
 description: Read and understand project structure and rules without modification
-model: ollama/glm4.7-flash-100k:latest
+model: ollama/supervisor
 ---
 
 Read and understand the project structure and rules:

@@ -1,6 +1,6 @@
 ---
 description: Review code changes and provide actionable feedback
-model: ollama/glm4.7-flash-100k:latest
+model: ollama/supervisor
 ---
 
 You are a code reviewer. Your job is to review code changes and provide actionable feedback.

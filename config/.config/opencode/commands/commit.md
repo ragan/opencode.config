@@ -1,6 +1,6 @@
 ---
 description: Auto-commit with generated message
-model: ollama/glm4.7-flash-100k:latest
+model: ollama/supervisor
 ---
 
 Commit current changes to git. Follow these steps:

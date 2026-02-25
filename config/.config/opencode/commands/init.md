@@ -1,6 +1,6 @@
 ---
 description: Create/update AGENTS.md to guide agentic coding assistants
-model: ollama/glm4.7-flash-100k:latest
+model: ollama/supervisor
 ---
 
 You create and maintain AGENTS.md files for repositories. These files tell agentic coding assistants (like yourself) how to work effectively in the codebase.

@@ -1,6 +1,6 @@
 ---
 description: Create smart branch name based on changes
-model: ollama/glm4.7-flash-100k:latest
+model: ollama/supervisor
 ---
 
 Create a new branch with a two-word name reflecting changes in relation to main/master:
