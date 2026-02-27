@@ -15,6 +15,7 @@ Configuration-only repository (dotfiles-style)
 /home/kpeek/opencode.config/
 ├── README.md                          # Project documentation
 ├── config/.config/opencode/opencode.json  # Main OpenCode configuration
+├── AGENTS.md                          # This file
 └── .git/                              # Git repository
 ```
 
@@ -25,6 +26,13 @@ Configuration-only repository (dotfiles-style)
 - **Auto-update**: Enabled (`autoupdate: true`)
 - **Custom Commands**:
   - `init`: Creates/updates AGENTS.md files in other repositories
+- **Model Configuration Approach**
+  This repository uses a specialized approach to model configuration that allows for efficient switching of the janitor model across all commands while maintaining distinct model configurations for other specialized roles:
+
+  - The `janitor` model is configured with a specific ID that can be changed to switch the model used for janitor duties
+  - Other models like `glm` and `qwen3` maintain distinct IDs for specialized use cases
+  - This approach allows easy model switching by updating only the ID in one location (the `janitor` model definition) rather than updating each command's reference
+  - Commands such as `init`, `commit`, and `review` all reference the `ollama/janitor` model and benefit from this centralized model management
 
 ## Code Style Guidelines
 
