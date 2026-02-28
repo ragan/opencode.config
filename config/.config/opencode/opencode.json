@@ -7,7 +7,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Ollama",
       "options": {
-        "baseURL": "http://ollama.hjkl.am:11434/v1"
+        "baseURL": "${OPENCODE_OLLAMA_URI}"
       },
       "models": {
         "janitor": {
