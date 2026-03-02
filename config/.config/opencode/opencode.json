@@ -11,15 +11,15 @@
       },
       "models": {
         "janitor": {
-          "id": "qwen3-coder:30b",
+          "id": "qwen3.5:27b",
           "name": "Code Janitor"
         },
         "glm": {
           "id": "glm4.7-flash-100k",
           "name": "GLM 4.7"
         },
-        "qwen3": {
-          "id": "qwen3-coder:30b",
+        "qwen3.5:27b": {
+          "id": "qwen3.5:27b",
           "name": "Qwen3 Coder 30B"
         }
       }
