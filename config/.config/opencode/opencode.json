@@ -26,6 +26,14 @@
         "qwen3.5:27b": {
           "id": "qwen3.5:27b",
           "name": "Qwen3.5 Coder 27B"
+        },
+        "qwen3-vl": {
+          "id": "qwen3-vl:latest",
+          "name": "Qwen3 Vision Language",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
         }
       }
     }
