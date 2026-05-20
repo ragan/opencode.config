@@ -19,8 +19,10 @@
           "name": "Code Janitor"
         },
         "qwen3.5:27b": {
-          "id": "qwen3.5:27b",
-          "name": "Qwen3.5 Coder 27B"
+          "id": "my_qwen3.5:27b",
+          "name": "My Qwen3.5 27B",
+          "tools": true,
+          "reasoning": true,
         },
         "qwen3-vl": {
           "id": "qwen3-vl:latest",
