@@ -225,12 +225,8 @@ When reviewing code style across a large codebase, use up to 5 parallel sub-agen
 
 ## Enforce with Linters
 
-Many rules are enforced automatically: `gofmt`, `gofumpt`, `goimports`, `gocritic`, `revive`, `wsl_v5`. → See the `samber/cc-skills-golang@golang-lint` skill.
+Many rules are enforced automatically: `gofmt`, `gofumpt`, `goimports`, `gocritic`, `revive`, `wsl_v5`
 
-## Cross-References
+## Reference
 
-- → See the `samber/cc-skills-golang@golang-naming` skill for identifier naming conventions
-- → See the `samber/cc-skills-golang@golang-structs-interfaces` skill for pointer vs value receivers, interface design
-- → See the `samber/cc-skills-golang@golang-design-patterns` skill for functional options, builders, constructors
-- → See the `samber/cc-skills-golang@golang-lint` skill for automated formatting enforcement
-- → See `samber/cc-skills-golang@golang-continuous-integration` skill for automated AI-driven code review in CI using these guidelines
+- [Effective Go](https://go.dev/doc/effective_go) - Official Go guide on idiomatic code style

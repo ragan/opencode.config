@@ -14,10 +14,6 @@
         "baseURL": "${OPENCODE_OLLAMA_URI}"
       },
       "models": {
-        "janitor": {
-          "id": "qwen3.5:27b",
-          "name": "Code Janitor"
-        },
         "qwen3.5:27b": {
           "id": "my_qwen3.5:27b",
           "name": "My Qwen3.5 27B",
