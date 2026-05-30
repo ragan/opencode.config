@@ -35,3 +35,5 @@ make uninstall
 - [OpenCode Documentation](https://opencode.ai)
 - [awesome-copilot](https://github.com/github/awesome-copilot) - Source of agent skills used in this configuration
 - [claude-code-owasp](https://github.com/agamm/claude-code-owasp) - OWASP security skills for AI coding agents
+- [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) - Agent skills collection for AI coding assistants
+- [agent-skills](https://github.com/CommandCodeAI/agent-skills) - Agent skills for AI coding assistants
