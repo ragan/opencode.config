@@ -33,3 +33,5 @@ make uninstall
 
 - [AGENTS.md](./AGENTS.md) - Documentation for AI coding agents working in this repository
 - [OpenCode Documentation](https://opencode.ai)
+- [awesome-copilot](https://github.com/github/awesome-copilot) - Source of agent skills used in this configuration
+- [claude-code-owasp](https://github.com/agamm/claude-code-owasp) - OWASP security skills for AI coding agents
