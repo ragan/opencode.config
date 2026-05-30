@@ -14,6 +14,8 @@
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Ollama",
+      "timeout": 600000,
+      "chunkTimeout": 120000,
       "options": {
         "baseURL": "${OPENCODE_OLLAMA_URI}"
       },
