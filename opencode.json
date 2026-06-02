@@ -25,6 +25,10 @@
           "name": "Qwen3.5 27B",
           "tools": true,
           "reasoning": true,
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
         },
         "qwen3-vl": {
           "id": "qwen3-vl:latest",
