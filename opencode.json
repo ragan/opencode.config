@@ -21,8 +21,8 @@
       },
       "models": {
         "qwen3.5:27b": {
-          "id": "my_qwen3.5:27b",
-          "name": "My Qwen3.5 27B",
+          "id": "qwen3.5:27b",
+          "name": "Qwen3.5 27B",
           "tools": true,
           "reasoning": true,
         },
