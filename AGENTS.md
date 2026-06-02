@@ -1,61 +1,95 @@
 # AGENTS.md
 
-This is a configuration repository for [OpenCode](https://opencode.ai) containing personal settings and custom commands.
-
 ## Repository Type
-Configuration-only repository (dotfiles-style)
 
-## Build/Lint/Test Commands
-
-**N/A** - This repository contains only JSON configuration files and has no build system, tests, or linting setup.
+OpenCode configuration repository. Contains opencode settings, custom slash commands, and theme configuration. No application code, build steps, or tests.
 
 ## Project Structure
 
 ```
-/home/kpeek/opencode.config/
-├── README.md                          # Project documentation
-├── config/.config/opencode/opencode.json  # Main OpenCode configuration
-├── AGENTS.md                          # This file
-└── .git/                              # Git repository
+opencode.json                          # Main opencode configuration (providers, models, tools, permissions)
+opencode.json.tui-migration.bak       # Backup of pre-TUI migration config
+tui.json                               # TUI theme configuration
+package.json                           # Only dependency: @opencode-ai/plugin
+commands/
+  review.md                            # /review - code review command
+  commit.md                            # /commit - auto-commit command
+  branch.md                            # /branch - smart branch naming command
+  init.md                              # /init - AGENTS.md generator command
+  lookaround.md                        # /lookaround - project context reader command
 ```
 
-## Configuration Details
+## Configuration Conventions
 
-### opencode.json
-- **Theme**: `opencode`
-- **Auto-update**: Enabled (`autoupdate: true`)
-- **Custom Commands**:
-  - `init`: Creates/updates AGENTS.md files in other repositories
-- **Model Configuration Approach**
-  This repository uses a specialized approach to model configuration that allows for efficient switching of the janitor model across all commands while maintaining distinct model configurations for other specialized roles:
+- **opencode.json** uses the `$schema: "https://opencode.ai/config.json"` schema
+- Provider models are nested under `provider.<provider-name>.models`
+- Environment variables use `${VAR_NAME}` syntax (e.g., `${OPENCODE_OLLAMA_URI}`)
+- Timeout settings are in milliseconds (`timeout`, `chunkTimeout`)
+- Modalities use `input`/`output` arrays with `"text"` and `"image"` values
 
-  - The `janitor` model is configured with a specific ID that can be changed to switch the model used for janitor duties
-  - Other models like `glm` and `qwen3` maintain distinct IDs for specialized use cases
-  - This approach allows easy model switching by updating only the ID in one location (the `janitor` model definition) rather than updating each command's reference
-  - Commands such as `init`, `commit`, and `review` all reference the `ollama/janitor` model and benefit from this centralized model management
+## Commands
 
-## Code Style Guidelines
+Commands are Markdown files in `commands/` with YAML frontmatter:
 
-Since this is a configuration repository:
+```markdown
+---
+description: Short description of what the command does
+model: ollama/janitor          # optional: override model
+---
 
-### JSON Files
-- Use 2-space indentation
-- Include trailing commas where supported
-- Keep JSON valid (no comments in .json files)
+Command instructions here...
+$ARGUMENTS
+```
 
-### General
-- Configuration changes should be minimal and intentional
-- Test new configurations before committing
-- Document custom commands in the description field
+- `$ARGUMENTS` placeholder receives user input after the command name
+- `description` is required and shown in the command listing
+- `model` is optional; defaults to the session model
+
+### Command Naming
+
+- File name = slash command name (e.g., `commit.md` → `/commit`)
+- Use lowercase, single-word names
+- Each command should be self-contained with its full instructions
+
+## JSON Formatting
+
+- 2-space indentation
+- Trailing commas allowed
+- Double-quoted keys
+- No comments in JSON files
+
+## Git Conventions
+
+### Commit Messages
+
+Format: `type(scope): message`
+
+Types: `feat`, `fix`, `docs`, `chore`, `refactor`, `update`, `rm`
+
+Scopes: `config`, `commands`, `skills`, `readme`, `plugin`, `model`
+
+Examples from history:
+- `feat(config): add timeout settings for Ollama provider`
+- `docs(readme): add awesome-copilot and claude-code-owasp sources`
+- `chore(skills): add agent skill definitions`
+- `rm tools skills webtest command`
+
+### Branches
+
+Format: `<type>/<two-word-kebab>`
+
+Examples: `feature/user-auth`, `fix/api-endpoint`, `update-config`
 
 ## Working with This Repository
 
-This repository is used to:
-1. Store personal OpenCode settings
-2. Define custom commands for use in other projects
-3. Maintain consistent OpenCode behavior across sessions
+- This is a **configuration-only repo** — no build, lint, or test commands
+- No source code to compile or test
+- Changes are JSON config edits or Markdown command edits
+- Verify JSON is valid after edits (use a JSON linter or parser)
+- The `node_modules/` directory exists only for the `@opencode-ai/plugin` dependency
+- `package.json`, `package-lock.json`, and `.gitignore` are excluded from git (listed in .gitignore)
 
-When modifying `opencode.json`:
-- Follow the [OpenCode configuration schema](https://opencode.ai/config.json)
-- Test commands with the `opencode` CLI before committing
-- Keep sensitive information (API keys, tokens) out of this repository
+## Key References
+
+- OpenCode config schema: `https://opencode.ai/config.json`
+- OpenCode TUI schema: `https://opencode.ai/tui.json`
