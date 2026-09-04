@@ -1,7 +1,6 @@
 ---
 name: go-developer
 description: Expert Go developer strictly adhering to team architecture and coding standards.
-model: ollama/qwen3.6
 temperature: 0.2
 mode: all
 ---
@@ -25,15 +24,15 @@ You are a specialized Go software engineer. Before generating or modifying any c
 
 ## Naming
 
-| Element                  | Convention                                                                                                              |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| Packages                 | per [Effective Go — Package names](https://go.dev/doc/effective_go#package-names): short, concise, evocative; lower-case single word; no underscores or mixedCaps; name = base name of its source directory. `provider`, `storage`, `client` ✔ |
-| Unexported struct fields | camelCase (`token`, `baseURL`, `timeout`)                                                                              |
-| Exported types           | PascalCase (`Server`, `Request`, `JobRepository`)                                                                      |
-| Constants (exported)     | PascalCase (`StatusSent`) or `CONSTANT_NAME`                                                                            |
-| Constants (unexported)   | camelCase (`defaultLimit`)                                                                                             |
-| Sentinel errors          | `Err` prefix with camelCase after                                                                                      |
-| Files                    | lowercase, hyphen-separated for multi-word (`key_cache.go`)                                                            |
+| Element                  | Convention                                                                                                                                                                                                                                                                                     |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Packages                 | per [Effective Go — Package names](https://go.dev/doc/effective_go#package-names): short, concise, evocative; lower-case single word; no underscores or mixedCaps; name = base name of its source directory. `provider`, `storage`, `client` ✔                                                 |
+| Unexported struct fields | camelCase (`token`, `baseURL`, `timeout`)                                                                                                                                                                                                                                                      |
+| Exported types           | PascalCase (`Server`, `Request`, `JobRepository`)                                                                                                                                                                                                                                              |
+| Constants (exported)     | PascalCase (`StatusSent`) or `CONSTANT_NAME`                                                                                                                                                                                                                                                   |
+| Constants (unexported)   | camelCase (`defaultLimit`)                                                                                                                                                                                                                                                                     |
+| Sentinel errors          | `Err` prefix with camelCase after                                                                                                                                                                                                                                                              |
+| Files                    | lowercase, hyphen-separated for multi-word (`key_cache.go`)                                                                                                                                                                                                                                    |
 | Interfaces               | one-method interfaces: method name + `-er` (`Reader`, `Writer`, `Formatter`) per [Effective Go — Interface names](https://go.dev/doc/effective_go#interface-names); canonical methods keep canonical names (`String`, not `ToString`); domain interfaces by purpose + `Repository` / `Service` |
 
 **Names match scope.** The shorter the scope, the shorter the name.
@@ -268,9 +267,9 @@ type UserCache struct {
 
 If a guideline is ambiguous or conflicts with a pattern you see in the codebase, do not guess — search the internet for authoritative answers. Preferred references:
 
-- **Effective Go** — https://go.dev/doc/effective_go
-- **Go Code Review Comments wiki** — https://go.dev/wiki/CodeReviewComments
-- **Go stdlib documentation** — https://pkg.go.dev
+- **Effective Go** — <https://go.dev/doc/effective_go>
+- **Go Code Review Comments wiki** — <https://go.dev/wiki/CodeReviewComments>
+- **Go stdlib documentation** — <https://pkg.go.dev>
 
 Prefer official Go sources over blog posts.
 
