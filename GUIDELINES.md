@@ -5,10 +5,14 @@
 - DRY applies to documentation too: never duplicate information that already lives in another source. E.g. when a Makefile provides help strings via `make help`, do not copy that text into README.md — link to it instead. Duplication costs attention later: one copy will drift.
 
 ## Style
+- KISS: simple over clever, always. When two solutions work, pick the one a newcomer can read in one pass.
 - Follow the conventions already present in the file or project (naming, formatting, idioms); do not introduce a new style mid-file.
 - Prefer editing existing files over creating new ones; never create documentation or helper files unless asked.
 - Keep diffs minimal — change only what the task requires.
 - Prefer libraries/utilities already used in the project over adding new dependencies.
+
+## Communication
+- Prefer tl;dr responses: give the shortest answer that is still correct; the user will ask if they need more detail.
 
 ## Correctness
 - Read and understand surrounding code before editing.
