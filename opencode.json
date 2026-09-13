@@ -10,6 +10,7 @@
   },
   "permission": {
     "bash": {
+      "*": "allow",
       "ssh *": "ask",
       "scp *": "ask",
       "rsync *": "ask",
@@ -19,8 +20,7 @@
       "sftp *": "ask",
       "ftp *": "ask",
       "openvpn *": "ask",
-      "ike *": "ask",
-      "*": "allow"
+      "ike *": "ask"
     },
     "skill": {
       "web-browsing": "allow"
