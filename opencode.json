@@ -4,6 +4,12 @@
   "instructions": [
     "GUIDELINES.md"
   ],
+  "references": {
+    "vault": {
+      "path": "~/.vault/",
+      "description": "Documentation vault. Use for questions about the homelab setup, architecture, services, or project notes."
+    }
+  },
   "tools": {
     "websearch": true,
     "codesearch": true
@@ -47,6 +53,34 @@
         "headerTimeout": 1200000
       },
       "models": {
+        "gemma2:2b": {
+          "id": "gemma2:2b",
+          "name": "Gemma 2 2B",
+          "reasoning": false,
+          "tool_call": false,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "translator-llm": {
+          "id": "gemma2-translator:latest",
+          "name": "Translator (Gemma 2 2B)",
+          "reasoning": false,
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
         "qwen3.8:27b": {
           "id": "qwen3.8:27b",
           "name": "Qwen3.8 27B",
