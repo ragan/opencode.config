@@ -67,20 +67,6 @@
             ]
           }
         },
-        "translator-llm": {
-          "id": "gemma2-translator:latest",
-          "name": "Translator (Gemma 2 2B)",
-          "reasoning": false,
-          "tool_call": true,
-          "modalities": {
-            "input": [
-              "text"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        },
         "qwen3.8:27b": {
           "id": "qwen3.8:27b",
           "name": "Qwen3.8 27B",
