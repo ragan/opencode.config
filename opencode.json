@@ -57,7 +57,21 @@
           "id": "gemma2:2b",
           "name": "Gemma 2 2B",
           "reasoning": false,
-          "tool_call": false,
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M": {
+          "id": "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M",
+          "name": "Qwen3.8 27B Uncensored GGUF Q4_K_M",
+          "reasoning": true,
+          "tool_call": true,
           "modalities": {
             "input": [
               "text"
