@@ -17,3 +17,8 @@
 ## Correctness
 - Read and understand surrounding code before editing.
 - After changes, run the project's lint and tests when available and fix what you broke.
+
+## Memory (Hindsight + Vault)
+- Recall before assuming: when a question touches past decisions, user preferences, or the homelab setup, run `hindsight_recall` first instead of guessing or re-asking.
+- Retain proactively: use `hindsight_retain` for user preferences, decisions, and environment specifics that have no other canonical home (not derivable from code or docs). Be specific — who, what, when, why.
+- Keep the vault current: `~/.vault/` is the durable home for homelab architecture, service notes, and project documentation. When durable state changes (a service deployed/changed, a diagram redrawn, a decision documented), update the matching vault note in the same change. This is the exception to the "no new docs unless asked" rule above.
