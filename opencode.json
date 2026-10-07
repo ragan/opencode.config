@@ -19,13 +19,33 @@
       "description": "Documentation vault. Use for questions about the homelab setup, architecture, services, or project notes."
     }
   },
+  "mcp": {
+    "appsmith": {
+      "type": "remote",
+      "url": "{env:APPSMITH_MCP_URL}",
+      "enabled": true,
+      "oauth": false,
+      "timeout": 60000,
+      "headers": {
+        "Authorization": "Bearer {env:APPSMITH_MCP_KEY}"
+      }
+    }
+  },
   "tools": {
     "websearch": true,
     "codesearch": true
   },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 20000
+  },
   "permission": {
     "external_directory": {
-      "~/.vault/*": "allow"
+      "~/.vault/*": "allow",
+      "/tmp/**": "allow",
+      // /tmp is a symlink to /private/tmp on macOS; allow both path forms
+      "/private/tmp/**": "allow"
     },
     "bash": {
       "*": "allow",
@@ -84,6 +104,10 @@
           "name": "Qwen3.8 27B Uncensored GGUF Q4_K_M",
           "reasoning": true,
           "tool_call": true,
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          },
           "modalities": {
             "input": [
               "text",
