@@ -38,7 +38,8 @@
   "compaction": {
     "auto": true,
     "prune": true,
-    "reserved": 20000
+    // 252000 - 28000 = 224000 → auto-compact triggers at ~224k tokens
+    "reserved": 28000
   },
   "permission": {
     "external_directory": {
@@ -99,13 +100,24 @@
             ]
           }
         },
-        "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M": {
-          "id": "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M",
-          "name": "Qwen3.8 27B Uncensored GGUF Q4_K_M",
+        // The served window comes from the TAG, not from "limit" below: opencode
+        // reaches ollama over the OpenAI-compatible /v1 endpoint, which ignores
+        // per-request num_ctx (https://github.com/ollama/ollama/issues/16814). The
+        // old :Q4_K_M tag had num_ctx 133120 baked into its Modelfile and beat any
+        // client setting; -256k is the same 17 GB blob rebuilt with num_ctx 262144.
+        // "limit" still matters HERE in opencode: it enables auto-compaction
+        // (limit.context === 0 disables it) and the output budget. "input" is
+        // REQUIRED for compaction.reserved to be honored — without it reserved is
+        // silently ignored (opencode #13980 / #38835). Trigger = input - reserved
+        // = 252000 - 28000 = 224000.
+        "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M-256k": {
+          "id": "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M-256k",
+          "name": "Qwen3.8 27B Uncensored GGUF Q4_K_M 256KiB",
           "reasoning": true,
           "tool_call": true,
           "limit": {
-            "context": 128000,
+            "context": 252000,
+            "input": 252000,
             "output": 8192
           },
           "modalities": {
