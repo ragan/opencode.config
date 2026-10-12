@@ -1,4 +1,5 @@
 node_modules
+plugins/windowlister # compiled binary; rebuild: swiftc -O plugins/windowlister.swift -o plugins/windowlister
 package.json
 package-lock.json
 bun.lock

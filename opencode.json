@@ -1,15 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  "plugin": [
-    [
-      "@vectorize-io/opencode-hindsight",
-      {
-        "hindsightApiUrl": "${HINDSIGHT_API_URL}",
-        "bankId": "opencode"
-      }
-    ]
-  ],
   "instructions": [
     "GUIDELINES.md"
   ],
@@ -19,15 +10,40 @@
       "description": "Documentation vault. Use for questions about the homelab setup, architecture, services, or project notes."
     }
   },
+  "skills": {
+    // ToolJet app-builder skill ships inside the cloned MCP repo. `~/` is
+    // expanded by opencode's skill loader (same as references.vault), so the
+    // home dir stays out of this file.
+    "paths": [
+      "~/source/tooljet-mcp/skills"
+    ]
+  },
   "mcp": {
     "appsmith": {
       "type": "remote",
       "url": "{env:APPSMITH_MCP_URL}",
-      "enabled": true,
+      "enabled": false,
       "oauth": false,
       "timeout": 60000,
       "headers": {
         "Authorization": "Bearer {env:APPSMITH_MCP_KEY}"
+      }
+    },
+    // ToolJet CE v3.20.240-lts: PAT module is stubbed, so auth uses the
+    // browser session token (see .zshenv; refresh per
+    // ~/.vault/tooljet-file-upload.md "Auth model").
+    "tooljet": {
+      "type": "local",
+      "command": [
+        "node",
+        "/Users/kpeek/source/tooljet-mcp/bundle/index.js"
+      ],
+      "enabled": true,
+      "environment": {
+        "TOOLJET_URL": "{env:TOOLJET_URL}",
+        "TOOLJET_DEPLOYMENT_URL": "{env:TOOLJET_DEPLOYMENT_URL}",
+        "TOOLJET_WORKSPACE_ID": "{env:TOOLJET_WORKSPACE_ID}",
+        "TOOLJET_SESSION_TOKEN": "{env:TOOLJET_SESSION_TOKEN}"
       }
     }
   },
@@ -38,8 +54,13 @@
   "compaction": {
     "auto": true,
     "prune": true,
-    // 252000 - 28000 = 224000 → auto-compact triggers at ~224k tokens
-    "reserved": 28000
+    // 252000 - 65000 = 187000 → auto-compact triggers at ~187k tokens.
+    // Why so early: the compaction request serializes the whole session and
+    // re-expands stored parts (reasoning text, tool-call JSON), inflating it
+    // ~1.3x over the live context (observed 2026-10-08: 224.7k live → 290824
+    // prompt tokens, rejected by ollama's 262144 window). Trigger must satisfy
+    // trigger * 1.3 + 8192 output <= 262144 → 187000 * 1.3 + 8192 ≈ 251k ✓
+    "reserved": 65000
   },
   "permission": {
     "external_directory": {
@@ -109,7 +130,7 @@
         // (limit.context === 0 disables it) and the output budget. "input" is
         // REQUIRED for compaction.reserved to be honored — without it reserved is
         // silently ignored (opencode #13980 / #38835). Trigger = input - reserved
-        // = 252000 - 28000 = 224000.
+        // = 252000 - 65000 = 187000; see the reserved comment above for why.
         "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M-256k": {
           "id": "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M-256k",
           "name": "Qwen3.8 27B Uncensored GGUF Q4_K_M 256KiB",
@@ -129,22 +150,11 @@
               "text"
             ]
           }
-        },
-        "qwen3.8:27b": {
-          "id": "qwen3.8:27b",
-          "name": "Qwen3.8 27B",
-          "reasoning": true,
-          "modalities": {
-            "input": [
-              "text",
-              "image"
-            ],
-            "output": [
-              "text"
-            ]
-          }
         }
       }
     }
-  }
+  },
+  "plugin": [
+    "/Users/kpeek/.hindsight/coding-agents"
+  ]
 }
