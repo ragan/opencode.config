@@ -7,5 +7,3 @@ bun.lock
 service.json
 
 
-# machine-specific details, never publish
-AGENTS.local.md
