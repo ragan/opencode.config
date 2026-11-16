@@ -6,3 +6,6 @@ bun.lock
 # holds the service password and LMM_DENIED_* env (see opencode.json permission rules)
 service.json
 
+
+# machine-specific details, never publish
+AGENTS.local.md

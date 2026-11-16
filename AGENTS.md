@@ -1,6 +1,22 @@
 # Vault pushes
 
-The documentation vault (`~/.vault`, same files on the Mac) is a git repo whose `origin` is `ssh://kpeek@192.168.88.35/srv/git/vault.git` on wyse (the old HTTP URL had broken push). Obsidian-git does NOT reliably push it — so after committing to the vault, **push it yourself** (`git -C ~/.vault push origin main`) before saying the work is done. Don't leave commits unpushed "for obsidian-git to pick up".
+The documentation vault (`~/.vault`, same files on the Mac) is a git repo whose
+origin is the homelab cgit on wyse (address in the local instructions file;
+the old HTTP URL had broken push). Obsidian-git does NOT reliably push it — so
+after committing to the vault, **push it yourself** (`git -C ~/.vault push
+origin main`) before saying the work is done. Don't leave commits unpushed
+"for obsidian-git to pick up".
+
+# Custom scripts live on cgit
+
+Any custom script or small tool written for the homelab must be kept on
+cgit (the self-hosted git server — see the local instructions file for its
+address; browse + deploy details in `~/.vault`). Never leave a written
+script only on the host that runs it — commit, push, and deploy the machine
+from the repo (clone/pull). First example: `~/src/media-hook`.
+
+(User ruling, 2026-11-16: "if you write a script or something custom,
+please keep it on cgit — retain this instruction as well for later".)
 
 # Communication style
 
