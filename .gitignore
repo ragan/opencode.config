@@ -3,3 +3,6 @@ plugins/windowlister # compiled binary; rebuild: swiftc -O plugins/windowlister.
 package.json
 package-lock.json
 bun.lock
+# holds the service password and LMM_DENIED_* env (see opencode.json permission rules)
+service.json
+

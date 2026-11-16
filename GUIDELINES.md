@@ -61,6 +61,9 @@ If a search or docs lookup turns up genuinely useful information (API quirks, ve
 - Read and understand surrounding code before editing.
 - After changes, run the project's lint and tests when available and fix what you broke.
 
+## Git
+- **Do not commit unless explicitly told to.** The user reviews the code before every commit — leave changes uncommitted and report what is pending. Commit only when the user specifically asks (e.g. "commit").
+
 ## Memory (Hindsight + Vault)
 - Recall before assuming: when a question touches past decisions, user preferences, or the homelab setup, run `hindsight_recall` first instead of guessing or re-asking.
 - Retain proactively: use `hindsight_retain` for user preferences, decisions, and environment specifics that have no other canonical home (not derivable from code or docs). Be specific — who, what, when, why.
