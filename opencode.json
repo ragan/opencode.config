@@ -161,9 +161,11 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Strata (local)",
       "options": {
-        // loopback :8088 — the launch's saved settings own the port (the CLI's
-        // --port flag did NOT stick; strata launch --status is the truth). Key required.
-        "baseURL": "http://127.0.0.1:8088/v1",
+        // strata.hjkl.app — tailnet-only (grey A → pi4r 100.94.40.28 → pi4r Caddy →
+        // rocket:8088; server binds 0.0.0.0 since 2026-11-16, launch preset
+        // "UD-IQ4_XS 256K" owns the flags). Key required; loopback
+        // http://127.0.0.1:8088/v1 still works on rocket itself.
+        "baseURL": "https://strata.hjkl.app/v1",
         "apiKey": "{env:STRATA_API_KEY}",
         "timeout": 1200000,
         "headerTimeout": 1200000
