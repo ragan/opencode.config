@@ -27,3 +27,9 @@ The user reads plain, short English. They are not a native speaker.
   Example: "6% is the default. 8% is used from 2026-09-01. A policy bought 2026-08-15 settles at 6%."
 - No jargon. Not "effective-dated versions". Not "asOf". Not "supersede". Say "the value used from that date". Say "the later date wins".
 - Code names stay as they are in the code (they are code, not prose). Explain a code name the first time it shows up.
+- No rhetorical flourish. No aphorisms, no dramatic sentence fragments, no rule-of-three punchlines, no
+  rhetorical questions. Say the thing once in flat prose and stop.
+  Bad: "The domain is a guess. The path is a fact." Bad: "And that changes everything."
+  Good: "We never proved the hostname, so the name in the config may differ. The path cannot differ, so
+  search for the path."
+  (User ruling, 2026-11-25: "no rhetorical fuckery please".)
