@@ -32,6 +32,21 @@
         "Authorization": "Bearer {env:APPSMITH_MCP_KEY}"
       }
     },
+    "vikunja": {
+      // Vikunja v2 built-in MCP (27 task/project/label tools), container
+      // vikunja-vikunja-1 on rocket, edge vikunja.hjkl.app — see ~/.vault/vikunja.md.
+      // Write-capable token, repo is PUBLIC so no literal here: value lives in
+      // /etc/opencode/opencode.env (VIKUNJA_MCP_TOKEN, loaded at service start —
+      // after editing that file, restart the service) + Bitwarden.
+      "type": "remote",
+      "url": "https://vikunja.hjkl.app/api/v2/mcp",
+      "enabled": true,
+      "oauth": false,
+      "timeout": 60000,
+      "headers": {
+        "Authorization": "Bearer {env:VIKUNJA_MCP_TOKEN}"
+      }
+    },
     "servers": {
       // Rocket openproject-mcp, fronted by Traefik via zzzzzz.dev.
       "openproject": {
@@ -53,6 +68,15 @@
           "TOOLJET_WORKSPACE_ID": "{env:TOOLJET_WORKSPACE_ID}",
           "TOOLJET_SESSION_TOKEN": "{env:TOOLJET_SESSION_TOKEN}"
         }
+      },
+      "rea": {
+        "type": "local",
+        "command": [
+          "/usr/bin/node",
+          "/usr/bin/rea",
+          "mcp"
+        ],
+        "disabled": false
       }
     }
   },
