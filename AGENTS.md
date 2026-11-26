@@ -26,6 +26,9 @@ The user reads plain, short English. They are not a native speaker.
 - Show it, don't name it. Give a concrete example with real numbers and real dates, before or instead of the abstract rule.
   Example: "6% is the default. 8% is used from 2026-09-01. A policy bought 2026-08-15 settles at 6%."
 - No jargon. Not "effective-dated versions". Not "asOf". Not "supersede". Say "the value used from that date". Say "the later date wins".
+- Explain technical facts with the plain technical words, not with a compressed figurative phrase that has to be decoded.
+  Bad: "the UPDATE was its own statement." Good: "the UPDATE is not inside a transaction, so it commits by itself the moment it finishes."
+  (User ruling, 2026-11-26: "wtf is this 'own statement', another shakespearyan fuckery?".)
 - Code names stay as they are in the code (they are code, not prose). Explain a code name the first time it shows up.
 - No rhetorical flourish. No aphorisms, no dramatic sentence fragments, no rule-of-three punchlines, no
   rhetorical questions. Say the thing once in flat prose and stop.
