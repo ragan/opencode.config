@@ -46,3 +46,11 @@ The user reads plain, short English. They are not a native speaker.
   settles it."
 - If a check takes under a minute, run it before answering. Do not replace the check with a soft guess, and
   do not pad an answer with caveats that a command would have settled.
+
+# Prod estate recon
+
+Read-only, short, targeted commands only. No recursive greps over big trees (`/opt/wso2` has thousands
+of jars — a full grep runs minutes), no find over `/`, nothing unbounded. Prefer `ps -ef`, `ss -tln`,
+and reading known config paths. One login attempt per host (fail2ban). No sudo (password), no `docker ps`
+(needs docker group). Kill recon rather than let it run long.
+(User ruling, 2026-11-25: "please don't run those long running commands as it's production environment".)
